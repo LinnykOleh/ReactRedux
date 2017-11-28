@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <link rel="stylesheet" href="../css/main.css">
+
+</head>
+<body>
+
+    <div id="program"></div>
+
+    <script type="text/babel">
+
+      class Task extends React.Component {
+
+        constructor(props){
+          super(props);
+          this.state = {
+            edit: false
+          };
+          this.edit = this.edit.bind(this);
+          this.save = this.save.bind(this);
+        }
+
+        edit(){
+          this.setState({
+            edit: true
+          })
+        }
+
+        save(){
+          var value = this.refs.newTxt.value;
+          alert(value);
+          this.setState({
+            edit: false
+          })
+        }
+
+        remove(){
+          alert("removing");
+        }
+
+        renderNorn(){
+          return <div className="box">
+              <div className="text">{this.props.children}</div>
+              <button className="btn light" onClick={this.edit}>Редактировать</button>
+              <button className="btn red" onClick={this.remove}>Удалить</button>
+          </div>;
+        }
+
+        renderEdit(){
+          return <div className="box">
+              <textarea ref="newTxt" defaultValue={this.props.children}></textarea>
+              <button className="btn light" onClick={this.save}>Сохранить</button>
+          </div>;
+        }
+
+        render() {
+          if(this.state.edit){
+            return this.renderEdit();
+          }else{
+            return this.renderNorn();
+          }
+        }
+      }
+
+      class Field extends React.Component{
+
+        constructor(props){
+          super(props);
+          this.state = {
+            tasks: [
+              'Buy milk',
+              'Clean tooth',
+              'Relax'
+            ]
+          };
+          this.eachTask = this.eachTask.bind(this);
+          this.deleteBlock = this.deleteBlock.bind(this);
+        }
+
+        deleteBlock(i){
+          var arr = this.state.tasks;
+          arr.splice(i, 1); //удаление
+          this.setState({
+            tasks : arr
+          });
+        }
+
+        updateText(text, i){
+          var arr = this.state.tasks;
+          arr[i] = text;
+          this.setState({
+            tasks : arr
+          });
+        }
+
+        eachTask(item, i){
+            return <div>
+                <Task key={i} index={i}>
+                  {item}
+                </Task>
+            </div>;
+        }
+
+        render() {
+            return <div className="field">
+              {this.state.tasks.map((item, i) => this.eachTask(item, i))}
+            </div>;
+        }
+      }
+
+      ReactDOM.render(
+         <Field />,
+        document.getElementById("program"));
+    </script>
+
+</body>
+</html>

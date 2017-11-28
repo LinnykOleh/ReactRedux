@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <link rel="stylesheet" href="../css/main.css">
+
+</head>
+<body>
+
+    <div id="program"></div>
+
+    <script type="text/babel">
+
+      class Task extends React.Component {
+
+        edit(){
+            alert("Editing");
+        }
+
+        remove(){
+          alert("removing");
+        }
+
+        render() {
+          return <div className="box">
+              <div className="text">{this.props.children}</div>
+              <button className="btn light" onClick={this.edit}>Редактировать</button>
+              <button className="btn red" onClick={this.remove}>Удалить</button>
+          </div>;
+        }
+      }
+
+      ReactDOM.render(
+        <div className="field">
+            <Task>Task 1</Task>
+            <Task>Task 2</Task>
+        </div>,
+        document.getElementById("program"));
+    </script>
+
+</body>
+</html>
