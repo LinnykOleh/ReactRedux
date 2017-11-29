@@ -25,3 +25,5 @@ hs_err_pid*
 
 /.idea/
 /ReactRedux.iml
+/redux/node_modules/
+/redux/*.log
