@@ -30,6 +30,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    /*это функция - колбэк для отправки action на reducer*/
+    /*Action => Reducer => Updated Store => Rerender*/
     select: (car) => {dispatch(selectCar(car))}
   }
 }
