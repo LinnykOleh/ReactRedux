@@ -25,7 +25,7 @@ Object.defineProperty(person, 'fullName', {
 console.log(person);
 person.sayHello();
 
-//================================
+console.log('******************************');
 //New JS
 let personNew = {
   firstName,
@@ -45,7 +45,7 @@ let personNew = {
 console.log(personNew);
 personNew.sayHello();
 
-//===========================
+console.log('******************************');
 
 let myObject = {};
 let property = 'lastName';
@@ -55,7 +55,7 @@ myObject = {
 
 console.log(myObject);
 
-//==========================
+console.log('******************************');
 
 function createCar(property, value) {
   return {

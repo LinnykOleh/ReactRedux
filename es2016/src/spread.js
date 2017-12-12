@@ -7,7 +7,7 @@ let language = [...staticLanguage, 'C#', ...dynamicLanguage, 'Python'];
 
 console.log(language); // ["C", "C++", "Java", "C#", "JavaScript", "PHP", "Ruby", "Python"]
 
-//==============================
+console.log('******************************');
 
 function add(x, y, z) {
   console.log(x + y + z);

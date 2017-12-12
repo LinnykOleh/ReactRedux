@@ -7,7 +7,7 @@ greet("Hi", "Bill"); //Hi Bill
 greet("Hi"); //Hi undefined
 greet(); //undefined undefined
 
-//==============================
+console.log('******************************');
 
 function greetNew(greeting = 'Hello', name = 'friend') {
   console.log(`${greeting} ${name}`)
@@ -17,9 +17,7 @@ greetNew("Hi", "Bill"); //Hi Bill
 greetNew("Hi"); //Hi friend
 greetNew(); //Hello friend
 
-//====================
-
-//================================
+console.log('******************************');
 //Old JS
 function sum() {
   console.log(arguments);
@@ -33,7 +31,7 @@ function sum() {
 
 sum(5, 7, 2, 10);
 
-//================================
+console.log('******************************');
 //New JS
 
 function sumNew(...values) {
@@ -42,11 +40,11 @@ function sumNew(...values) {
     sum += value;
   });
   console.log(sum);
-}
+};
 
 sumNew(5, 7, 2, 10);
 
-//====================
+console.log('******************************');
 
 function sumNew2(...values) {
   console.log(values.reduce(function (prevValue, currentValue) {
